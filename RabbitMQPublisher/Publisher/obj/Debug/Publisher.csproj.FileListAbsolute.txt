@@ -1,0 +1,14 @@
+C:\inventti\RabbitMQPublisher\RabbitMQPublisher\Publisher\bin\Debug\Publisher.exe.config
+C:\inventti\RabbitMQPublisher\RabbitMQPublisher\Publisher\bin\Debug\Publisher.exe
+C:\inventti\RabbitMQPublisher\RabbitMQPublisher\Publisher\bin\Debug\Publisher.pdb
+C:\inventti\RabbitMQPublisher\RabbitMQPublisher\Publisher\bin\Debug\Edocs.Mensageria.Powerdocs.dll
+C:\inventti\RabbitMQPublisher\RabbitMQPublisher\Publisher\bin\Debug\log4net.dll
+C:\inventti\RabbitMQPublisher\RabbitMQPublisher\Publisher\bin\Debug\Newtonsoft.Json.dll
+C:\inventti\RabbitMQPublisher\RabbitMQPublisher\Publisher\bin\Debug\RabbitMQ.Client.dll
+C:\inventti\RabbitMQPublisher\RabbitMQPublisher\Publisher\bin\Debug\ServiceStack.Text.dll
+C:\inventti\RabbitMQPublisher\RabbitMQPublisher\Publisher\bin\Debug\Newtonsoft.Json.xml
+C:\inventti\RabbitMQPublisher\RabbitMQPublisher\Publisher\obj\Debug\Publisher.csprojAssemblyReference.cache
+C:\inventti\RabbitMQPublisher\RabbitMQPublisher\Publisher\obj\Debug\Publisher.csproj.CoreCompileInputs.cache
+C:\inventti\RabbitMQPublisher\RabbitMQPublisher\Publisher\obj\Debug\Publisher.csproj.CopyComplete
+C:\inventti\RabbitMQPublisher\RabbitMQPublisher\Publisher\obj\Debug\Publisher.exe
+C:\inventti\RabbitMQPublisher\RabbitMQPublisher\Publisher\obj\Debug\Publisher.pdb
