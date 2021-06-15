@@ -16,25 +16,62 @@ namespace RabbitMQPublisher
         {
             Console.WriteLine("Realizando a publicação das mensagens");
 
-            /*SendOneDocument(documentNumSeq: 6027);
-            SendManyDocuments(quantity: 10);*/
+            //SendOneDocument(documentNumSeq: 7002);
+            //SendManyDocuments(quantity: 10);*/
 
-            SendDocumentOccurrence(documentNumSeq: 6027);
+            //SendOneDocumentOccurrence(documentNumSeq: 7000);
+            //SendManyDocumentOccurrences(documentNumSeq: 7002, quantity: 11);
         }
 
         /// <summary>
-        /// Publicação de mensagens contendo o dto OccurrenceForCreateDto - (CreateForDocumentOccurrence)
+        /// Publicação de mensagens contendo o dto NF3eDocumentForCreateDto - (CreateForDocument)
+        /// </summary>
+        /// <param name="quantity">Quantidade de documentos e respectivas mensagens que serão publicadas, caso não passado assume o valor default</param>
+        /// /// <param name="documentNumSeq">PK NF3ePack NF3eDocument</param>
+        private static void SendManyDocumentOccurrences(long documentNumSeq, int quantity = 11)
+        {
+            int occurrenceTypeEnumValue = 0;
+
+            for (int i = 0; i <= quantity; i++)
+            {
+                occurrenceTypeEnumValue++;
+
+                OccurrenceForCreateDto occurrence = new OccurrenceForCreateDto()
+                {
+                    Chave = $"3221051504812400380655002{documentNumSeq}1610660235",
+                    DataOcorrencia = DateTime.Now,
+                    Status = new Random().Next(0, 1),
+                    TipoOcorrencia = occurrenceTypeEnumValue,
+                    Mensagem = $"Teste de ocorrências... {Enum.GetName(typeof(ENF3eOccurrenceType), occurrenceTypeEnumValue)}."
+                };
+
+                PowerdocsMessage powerdocsMessage = PowerdocsMessage.CreateForDocumentOccurrence(documentNumSeq, EMessageOperationType.Create, JsonConvert.SerializeObject(occurrence));
+                _mensageriaPowerdocs.Publicar(powerdocsMessage, "PowerDocs", "NF3ePack");
+
+                Thread.Sleep(200);
+
+                if (occurrenceTypeEnumValue == 11)
+                {
+                    occurrenceTypeEnumValue = 0;
+                }
+
+            }
+
+        }
+
+        /// <summary>
+        /// Publicação de mensagem contendo o dto OccurrenceForCreateDto - (CreateForDocumentOccurrence)
         /// </summary>
         /// <param name="documentNumSeq">PK NF3ePack NF3eDocument</param>
-        private static void SendDocumentOccurrence(long documentNumSeq)
+        private static void SendOneDocumentOccurrence(long documentNumSeq)
         {
             OccurrenceForCreateDto occurrence = new OccurrenceForCreateDto()
             {
-                Chave = "127498112445124312",
+                Chave = $"3221051504812400380655002{documentNumSeq}1610660235",
                 DataOcorrencia = DateTime.Now,
                 Status = 0,
-                TipoOcorrencia = (int)ENF3eOccurrenceType.Criticism,
-                Mensagem = "Teste de ocorrência"
+                TipoOcorrencia = (int)ENF3eOccurrenceType.OfflineContingency,
+                Mensagem = "Teste de ocorrência do tipo de contingencia offline"
             };
 
             PowerdocsMessage powerdocsMessage = PowerdocsMessage.CreateForDocumentOccurrence(documentNumSeq, EMessageOperationType.Create, JsonConvert.SerializeObject(occurrence));
@@ -60,17 +97,17 @@ namespace RabbitMQPublisher
                 {
                     NumeroSequencial = documentNumSeq,
                     Chave = chave,
-                    CNPJCPFEmitente = "11111111111111",
-                    Serie = 1,
+                    CNPJCPFEmitente = "1254124252352",
+                    Serie = 21,
                     Numero = documentNumSeq,
-                    NomeEmitente = "Primeiro Emitente Teste",
-                    CNPJCPFDestinatario = "22222222222222",
-                    NomeDestinatario = "Primeiro Destinatário Teste",
+                    NomeEmitente = "Emitente para teste do rabbitMq",
+                    CNPJCPFDestinatario = "41221412432",
+                    NomeDestinatario = "Destinatário para teste do rabbitMq",
                     DataEmissao = DateTime.Now,
                     Status = 4,
-                    ValorTotal = 10.00m,
-                    EmailsPDF = "ruano@inventti.com.br",
-                    EmailsXML = "ruano@inventti.com.br",
+                    ValorTotal = 66.00m,
+                    EmailsPDF = "guilherme.francisco@inventti.com.br",
+                    EmailsXML = "guilherme.francisco@inventti.com.br",
                     DocumentoXML = ""
                 };
 
