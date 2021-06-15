@@ -20,7 +20,7 @@ namespace RabbitMQPublisher
             //SendManyDocuments(quantity: 10);*/
 
             //SendOneDocumentOccurrence(documentNumSeq: 7000);
-            //SendManyDocumentOccurrences(documentNumSeq: 7002, quantity: 11);
+            SendManyDocumentOccurrences(documentNumSeq: 7002, quantity: 11);
         }
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace RabbitMQPublisher
                 {
                     Chave = $"3221051504812400380655002{documentNumSeq}1610660235",
                     DataOcorrencia = DateTime.Now,
-                    Status = new Random().Next(0, 1),
+                    Status = new Random().Next(0, 2),
                     TipoOcorrencia = occurrenceTypeEnumValue,
                     Mensagem = $"Teste de ocorrências... {Enum.GetName(typeof(ENF3eOccurrenceType), occurrenceTypeEnumValue)}."
                 };
