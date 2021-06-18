@@ -16,11 +16,33 @@ namespace RabbitMQPublisher
         {
             Console.WriteLine("Realizando a publicação das mensagens");
 
-            //SendOneDocument(documentNumSeq: 7002);
+            //SendOneDocument(documentNumSeq: 7007);
             //SendManyDocuments(quantity: 10);*/
 
             //SendOneDocumentOccurrence(documentNumSeq: 7000);
-            SendManyDocumentOccurrences(documentNumSeq: 7002, quantity: 11);
+            //SendManyDocumentOccurrences(documentNumSeq: 7002, quantity: 11);
+
+            SendOneDocumentFiscalEvent(documentNumSeq: 7007);
+        }
+
+        /// <summary>
+        /// Publicação de mensagem contendo o dto FiscalEventForCreateDto - (CreateForFiscalEvent)
+        /// </summary>
+        /// <param name="documentNumSeq">PK NF3ePack NF3eDocument</param>
+        private static void SendOneDocumentFiscalEvent(long documentNumSeq)
+        {
+            FiscalEventForCreateDto fiscalEventForCreateDto = new FiscalEventForCreateDto()
+            {
+                Chave = "23545616546312642",
+                Status = (int)ENF3eFiscalEventStatus.Criticized,
+                NumeroSequencial = 1,
+                TipoEvento = (int)ENF3eFiscalEventType.Cancelation,
+                DataEvento = DateTime.Now,
+                Descricao = "Teste de evento por msg",
+            };
+
+            PowerdocsMessage powerdocsMessage = PowerdocsMessage.CreateForFiscalEvent(documentNumSeq, EMessageOperationType.Create, JsonConvert.SerializeObject(fiscalEventForCreateDto));
+            _mensageriaPowerdocs.Publicar(powerdocsMessage, "PowerDocs", "NF3ePack");
         }
 
         /// <summary>
@@ -140,8 +162,8 @@ namespace RabbitMQPublisher
                 DataEmissao = DateTime.Now,
                 Status = 4,
                 ValorTotal = 10.00m,
-                EmailsPDF = "ruano@inventti.com.br",
-                EmailsXML = "ruano@inventti.com.br",
+                EmailsPDF = "guilherme.francisco@inventti.com.br",
+                EmailsXML = "guilherme.francisco@inventti.com.br",
                 DocumentoXML = ""
             };
 

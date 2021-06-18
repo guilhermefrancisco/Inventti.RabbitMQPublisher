@@ -59,11 +59,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\Inventti.PowerDocs\backend\src\Inventti.PowerDocs.Domain\Dtos\Commons\FiscalEventForCreateDto.cs">
+      <Link>Dtos\FiscalEventForCreateDto.cs</Link>
+    </Compile>
     <Compile Include="..\..\..\Inventti.PowerDocs\backend\src\Inventti.PowerDocs.Domain\Dtos\Commons\OccurrenceForCreateDto.cs">
       <Link>Dtos\OccurrenceForCreateDto.cs</Link>
     </Compile>
     <Compile Include="..\..\..\Inventti.PowerDocs\backend\src\Inventti.PowerDocs.Domain\Dtos\NF3e\Document\NF3eDocumentForCreateDto.cs">
       <Link>Dtos\NF3eDocumentForCreateDto.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Inventti.PowerDocs\backend\src\Inventti.PowerDocs.Domain\Enums\NF3e\ENF3eFiscalEventStatus.cs">
+      <Link>Enums\ENF3eFiscalEventStatus.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\Inventti.PowerDocs\backend\src\Inventti.PowerDocs.Domain\Enums\NF3e\ENF3eFiscalEventType.cs">
+      <Link>Enums\ENF3eFiscalEventType.cs</Link>
     </Compile>
     <Compile Include="..\..\..\Inventti.PowerDocs\backend\src\Inventti.PowerDocs.Domain\Enums\NF3e\ENF3eOccurrenceType.cs">
       <Link>Enums\ENF3eOccurrenceType.cs</Link>
